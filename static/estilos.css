@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    padding: 30px 0 8px 0;
+    text-align: center;
+    background: lightgray;
+}
+
+.titulo-principal {
+    margin: 0;
+    font-size: 3.5em;
+    color: navy;
+}
+
+.navbar {
+    background: #e0e0e0;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: navy;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+}
+
+
+
+form label {
+    font-weight: bold;
+    color: navy;
+    margin-bottom: 2px;
+    display: block;
+}
+
+input[type="text"], input[type="date"], select {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 12px;
+    border: 1px solid gray;
+    font-size: 1em;
+    background: #f6f6f6;
+}
+
+button[type="submit"], .boton-inicio {
+    width: 100%;
+    background: navy;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    margin-top: 6px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover, .boton-inicio:hover {
+    background: blue;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 12px;
+    font-size: 0.98em;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+th {
+    background: #e0e0e0;
+    color: navy;
+}
+
+tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.mensaje-flash, ul li {
+    background: lightgreen;
+    color: black;
+    padding: 8px;
+    margin: 8px 0 0 0;
+
+}
+
+ul {
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+@media (max-width: 600px) {
+    .caja-principal, .cuadro-formulario {
+        width: 97vw;
+        min-width: unset;
+        padding: 10px;
+    }
+    main {
+        margin-top: 6px;
+    }
+}
