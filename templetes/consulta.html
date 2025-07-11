@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Consulta de Registros Horarios{% endblock %}
+{% block body_class %}funcionalidad-body{% endblock %}
+
+{% block content %}
+<div class="caja-principal">
+    <h2>Consulta de Registros Horarios</h2>
+    <form method="post">
+        <div>
+            <label>Legajo:</label><br>
+            <input type="text" name="legajo" required>
+        </div>
+        <div>
+            <label>Últimos 4 dígitos del DNI:</label><br>
+            <input type="text" name="dni" required maxlength="4" pattern="\d{4}">
+        </div>
+        <div>
+            <label>Fecha inicio:</label><br>
+            <input type="date" name="fecha_ini" required>
+        </div>
+        <div>
+            <label>Fecha fin:</label><br>
+            <input type="date" name="fecha_fin" required>
+        </div>
+        <div>
+            <button type="submit">Consultar</button>
+        </div>
+    </form>
+    {% if registros %}
+    <table>
+        <tr>
+            <th>Fecha</th>
+            <th>Hora Entrada</th>
+            <th>Hora Salida</th>
+            <th>Dependencia</th>
+        </tr>
+        {% for r in registros %}
+        <tr>
+            <td>{{ r.fecha }}</td>
+            <td>{{ r.horaentrada }}</td>
+            <td>{{ r.horasalida or "" }}</td>
+            <td>{{ dependencias_dict.get(r.dependencia, r.dependencia) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
